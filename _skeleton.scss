@@ -73,23 +73,23 @@
             width: skeleton-column-width($num, $tablet-width); }
 
         @media only screen and (max-width: 767px) {
-            width: skeleton-column-width($num, $mobile-portrait-width); }   
+            width: 300px; }   
 
         @media only screen and (min-width: 480px) and (max-width: 767px) {
-            width: skeleton-column-width($num, $mobile-landscape-width); } }
+            wwidth: 420px; } } }
     
     @mixin third($num: 1) {
         @include column;
         width: skeleton-third-width($num, $base-width); 
         
         @media only screen and (min-width: 768px) and (max-width: 959px) {
-                width: skeleton-third-width($num, $tablet-width); }
+            width: skeleton-third-width($num, $tablet-width); }
                 
         @media only screen and (max-width: 767px) {
-            width: skeleton-third-width($num, $mobile-portrait-width); }   
+            width: 300px; }   
 
         @media only screen and (min-width: 480px) and (max-width: 767px) {
-            width: skeleton-third-width($num, $mobile-landscape-width); }}
+            width: 420px; }}
 
     @mixin offset($num: 1) {
         padding-left: $num * $width; 
