@@ -76,7 +76,7 @@
             width: 300px; }   
 
         @media only screen and (min-width: 480px) and (max-width: 767px) {
-            wwidth: 420px; } } }
+            width: 420px; } } }
     
     @mixin third($num: 1) {
         @include column;
