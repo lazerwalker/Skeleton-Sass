@@ -73,10 +73,10 @@
             width: skeleton-column-width($num, $tablet-width); }
 
         @media only screen and (max-width: 767px) {
-            width: 300px; }   
+            width: $mobile-portrait-width; }   
 
         @media only screen and (min-width: 480px) and (max-width: 767px) {
-            width: 420px; } } }
+            width: $mobile-landscape-width; } } }
     
     @mixin third($num: 1) {
         @include column;
@@ -86,10 +86,10 @@
             width: skeleton-third-width($num, $tablet-width); }
                 
         @media only screen and (max-width: 767px) {
-            width: 300px; }   
+            width: $mobile-portrait-width; }   
 
         @media only screen and (min-width: 480px) and (max-width: 767px) {
-            width: 420px; }}
+            width: $mobile-landscape-width; }}
 
     @mixin offset($num: 1) {
         padding-left: $num * $width; 
