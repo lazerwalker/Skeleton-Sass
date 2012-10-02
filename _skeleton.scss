@@ -92,8 +92,13 @@
             width: $mobile-landscape-width; }}
 
     @mixin offset($num: 1) {
-        padding-left: $num * $width; 
-        @media only screen and (max-width: 767px) { 
+        $offset: 20px;
+        padding-left: skeleton-column-width($num, $base-width) + $offset;
+
+        @media only screen and (min-width: 768px) and (max-width: 959px) {
+            padding-left: skeleton-column-width($num, $tablet-width) + $offset; }
+
+        @media only screen and (max-width: 767px) {
             padding-left: 0; } }
 
 
