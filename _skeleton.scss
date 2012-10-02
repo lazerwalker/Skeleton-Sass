@@ -76,7 +76,7 @@
             width: $mobile-portrait-width; }   
 
         @media only screen and (min-width: 480px) and (max-width: 767px) {
-            width: $mobile-landscape-width; } } }
+            width: $mobile-landscape-width; } }
     
     @mixin third($num: 1) {
         @include column;
