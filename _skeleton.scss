@@ -10,6 +10,16 @@
 * http://www.opensource.org/licenses/mit-license.php
 */
 
+/* Prevent margins and paddings from adding or subtracting to the column size 
+===================================================*/
+*, *:before, *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+ }
+
+
+
 /* #Variable Definitions
 ================================================== */
     $base-width: 960px;
@@ -19,6 +29,12 @@
 
     $num-columns: 16;
     $margin: 10px;
+   
+    $topMaxWidth: 959px;
+    $topMinWidth: 768px;
+    $medMaxWidth: $topMinWidth - 1;
+    $botMaxWidth: $medMaxWidth;
+    $botMinWidth: 480px;
 
 /* Grid
 ================================================== */
@@ -41,13 +57,13 @@
             clear: both;
             visibility: hidden; }
 
-        @media only screen and (min-width: 768px) and (max-width: 959px) {
+        @media only screen and (min-width: $topMinWidth ) and (max-width: topMaxWidth ) {
             width: $tablet-width; }
 
-        @media only screen and (max-width: 767px) {
+        @media only screen and (max-width: $medMaxWidth) {
             width: $mobile-portrait-width; }
 
-        @media only screen and (min-width: 480px) and (max-width: 767px) {
+        @media only screen and (min-width: $botMinWidth ) and (max-width: $botMaxWidth ) {
             width: $mobile-landscape-width; } }
 
     @mixin column {
@@ -56,7 +72,7 @@
         margin-left: $margin;
         margin-right: $margin;
 
-        @media only screen and (max-width: 767px) { margin: 0; } }
+        @media only screen and (max-width: $medMaxWidth ) { margin: 0; } }
 
     @mixin row {
         @include clearfix;
@@ -69,36 +85,52 @@
         @include column;
         width: skeleton-column-width($num, $base-width);
 
-        @media only screen and (min-width: 768px) and (max-width: 959px) {
+        @media only screen and (min-width: $topMinWidth ) and (max-width: $topMaxWidth ) {
             width: skeleton-column-width($num, $tablet-width); }
 
-        @media only screen and (max-width: 767px) {
+        @media only screen and (max-width: $medMaxWidth) {
             width: $mobile-portrait-width; }
 
-        @media only screen and (min-width: 480px) and (max-width: 767px) {
+        @media only screen and (min-width: $botMinWidth ) and (max-width: $botMaxWidth ) {
             width: $mobile-landscape-width; } }
+
+    @mixin fullColumns($num: 1) {
+        @include column;
+	@include alpha;
+	@include omega;
+        width: skeleton-column-width($num, $base-width);
+
+        @media only screen and (min-width: $topMinWidth ) and (max-width: $topMaxWidth ) {
+            width: skeleton-column-width($num, $tablet-width); }
+
+        @media only screen and (max-width: $medMaxWidth ) {
+            width: $mobile-portrait-width; }
+
+        @media only screen and (min-width: $botMinWidth ) and (max-width: $botMinWidth ) {
+            width: $mobile-landscape-width; } }
+
 
     @mixin third($num: 1) {
         @include column;
         width: skeleton-third-width($num, $base-width);
 
-        @media only screen and (min-width: 768px) and (max-width: 959px) {
+        @media only screen and (min-width: $topMinWidth ) and (max-width: $topMaxWidth ) {
             width: skeleton-third-width($num, $tablet-width); }
 
-        @media only screen and (max-width: 767px) {
+        @media only screen and (max-width: $medMinWidth) {
             width: $mobile-portrait-width; }
 
-        @media only screen and (min-width: 480px) and (max-width: 767px) {
+        @media only screen and (min-width: $botMinWidth ) and (max-width: $botMaxWidth ) {
             width: $mobile-landscape-width; }}
 
     @mixin offset($num: 1) {
         $offset: 2 * $margin;
         padding-left: skeleton-column-width($num, $base-width) + $offset;
 
-        @media only screen and (min-width: 768px) and (max-width: 959px) {
+        @media only screen and (min-width: $botMaxWidth ) and (max-width: $topMaxWidth ) {
             padding-left: skeleton-column-width($num, $tablet-width) + $offset; }
 
-        @media only screen and (max-width: 767px) {
+        @media only screen and (max-width: $medMaxWidth ) {
             padding-left: 0; } }
 
 
