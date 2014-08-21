@@ -10,6 +10,16 @@
 * http://www.opensource.org/licenses/mit-license.php
 */
 
+/* Prevent margins and paddings from adding or subtracting to the column size 
+===================================================*/
+*, *:before, *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+ }
+
+
+
 /* #Variable Definitions
 ================================================== */
     $base-width: 960px;
