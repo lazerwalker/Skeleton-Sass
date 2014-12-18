@@ -1,5 +1,5 @@
 /*
-* Skeleton-SASS V1.0
+* Skeleton-Sass V1.0
 * Copyright 2012 by Michael Lazer-Walker
 * https://github.com/lazerwalker/Skeleton-Sass
 *
@@ -10,7 +10,7 @@
 * http://www.opensource.org/licenses/mit-license.php
 */
 
-/* Prevent margins and paddings from adding or subtracting to the column size 
+/* Prevent margins and paddings from adding or subtracting to the column size
 ===================================================*/
 *, *:before, *:after {
   -moz-box-sizing: border-box;
@@ -29,7 +29,7 @@
 
     $num-columns: 16;
     $margin: 10px;
-   
+
     $topMaxWidth: 959px;
     $topMinWidth: 768px;
     $medMaxWidth: $topMinWidth - 1;
